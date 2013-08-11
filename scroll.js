@@ -15,32 +15,38 @@ $(document).ready(function(){
 
 function scroll(arg)
 {
-	if(forward)
+	if(width > viewWidth)
 	{
-		$('#scroll-wrapper').animate({
-			left:-(width-viewWidth)
+		if(forward)
+		{
+			$('#scroll-wrapper').animate({
+				left:-(width-viewWidth)
 
-		},{
-			duration:time,
-			easing:"linear",
-			complete:function(){
-					forward = !forward;
-					scroll(forward);
-				}
-		});
-	}else{
-		$('#scroll-wrapper').animate({
-			left:0
+			},{
+				duration:time,
+				easing:"linear",
+				complete:function(){
+						forward = !forward;
+						scroll(forward);
+					}
+			});
+		}else{
+			$('#scroll-wrapper').animate({
+				left:0
 
-		},{
-			duration:time,
-			easing:"linear",
-			complete:function(){
-					forward = !forward;
-					scroll(forward);
-				}
-		});
+			},{
+				duration:time,
+				easing:"linear",
+				complete:function(){
+						forward = !forward;
+						scroll(forward);
+					}
+			});
+		}
 	}
-	
+	else
+	{
+		//do nothing
+	}
 }
 
